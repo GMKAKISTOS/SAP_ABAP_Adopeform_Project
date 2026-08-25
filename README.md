@@ -35,11 +35,11 @@ Adobe Form
 PDF Output
 
 
-The ABAP program provides the data, the Form Interface passes the data to the Adobe Form, and the Adobe Form is used to create the final PDF document.
+The ABAP program provides the data, the Form Interface passes the data to the Adobe Form and the Adobe Form is used to create the final PDF document.
 
 What I Learned
 
-While working on this project, I practiced:
+While working on this project i practiced:
 
 Creating an Adobe Form
 Creating a Form Interface
@@ -47,62 +47,18 @@ Passing ABAP data to an Adobe Form
 Designing forms using Adobe LiveCycle Designer
 Working with form fields and data binding
 Generating PDF output from SAP
+
 Requirements
 
-To run or modify this project, you need:
+To run or modify this project you need:
 
 A SAP ABAP system with Adobe Forms support
 SAP GUI
 Adobe LiveCycle Designer 11.0
 The required authorizations for Adobe Forms development
+
 Purpose
 
 This project was created mainly for learning and practicing SAP ABAP and Adobe Forms.
 
 It can also be used as a simple example for anyone who is starting to work with Adobe Forms in SAP.
-
-Author
-
-GMKAKISTOS
-
-SAP ABAP Developer
-
-⭐ If you find this project useful, feel free to star the repository.
-
-
-### What it should look like on GitHub
-
-After you save the file, GitHub will render it approximately like this:
-
-# SAP ABAP Adobe Forms Project
-
-This is a simple **SAP ABAP project** created to practice and learn how to work with **Adobe Forms in SAP**.
-
-## Technologies
-
-- SAP ABAP
-- SAP NetWeaver 7.52 SP04
-- Adobe Forms
-- Adobe LiveCycle Designer 11.0
-- Adobe Form Reader
-
-## What This Project Does
-
-The basic process is:
-
-```text
-ABAP Data
-    ↓
-Form Interface
-    ↓
-Adobe Form
-    ↓
-PDF Output
-
-What I Learned
-Creating an Adobe Form
-Creating a Form Interface
-Passing ABAP data to an Adobe Form
-Designing forms using Adobe LiveCycle Designer
-Working with form fields and data binding
-Generating PDF output from SAP
