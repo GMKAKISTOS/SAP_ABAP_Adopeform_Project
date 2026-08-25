@@ -1,7 +1,3 @@
-Yes — the problem is that the previous response got mixed with UI citation/source data. Below is a clean, copy-paste-ready README.md with no extra formatting artifacts.
-
-Copy everything inside the code block and paste it directly into your GitHub README.md.
-
 # SAP ABAP Adobe Forms Project 📄
 
 > A practical SAP ABAP project demonstrating the development and integration of Adobe Forms with SAP NetWeaver, using Adobe LiveCycle Designer for professional PDF form design.
