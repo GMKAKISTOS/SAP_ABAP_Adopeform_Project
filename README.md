@@ -264,12 +264,6 @@ git push origin feature/improve-adobe-form
 
 Please refer to the repository for the applicable project licensing information.
 
-👨‍💻 Author
-
-GMKAKISTOS
-
-SAP ABAP Developer / SAP Technology Enthusiast
-
 This project was created as a practical demonstration of SAP ABAP + Adobe Forms development.
 
 ⭐ Support the Project
