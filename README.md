@@ -1,10 +1,10 @@
-#SAP ABAP Adobe Forms Project
+# SAP ABAP Adobe Forms Project
 
 This is a simple SAP ABAP project created to practice and learn Adobe Forms in SAP.
 
 The project shows how ABAP data can be passed to an Adobe Form and used to generate a PDF document.
 
-#Technologies
+# Technologies
 SAP ABAP
 SAP NetWeaver 7.52 SP04
 Adobe Forms
@@ -52,7 +52,7 @@ SAP GUI
 Adobe LiveCycle Designer 11.0
 The required authorizations for Adobe Forms development
 
-#Purpose
+# Purpose
 
 This project is mainly for learning and practicing SAP ABAP Adobe Forms.
 
