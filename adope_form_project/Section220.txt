@@ -1,0 +1,95 @@
+*&---------------------------------------------------------------------*
+*& Report ZABAP_SYNTAX36
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZABAP_SYNTAX36.
+
+DATA : IE_OUTPUTPARAMS    TYPE SFPOUTPUTPARAMS,
+       I_NAME             TYPE FPNAME VALUE 'ZKFORM01',
+       E_FUNCNAME         TYPE FUNCNAME,
+       /1BCDWB/DOCPARAMS  TYPE SFPDOCPARAMS,
+       /1BCDWB/FORMOUTPUT TYPE FPFORMOUTPUT.
+
+PARAMETERS : DEMPID TYPE ZEMPLOYEE_MASTE-EMPLOYEE_ID OBLIGATORY DEFAULT 'E000500000'.
+
+START-OF-SELECTION.
+
+TRY.
+PERFORM CALL_ADF.
+"CATCH CX_ROOT.
+"MESSAGE 'Not found!' TYPE 'I'.
+CATCH CX_ROOT INTO DATA(LX_ERROR).
+MESSAGE LX_ERROR->GET_TEXT( ) TYPE 'I'.
+ENDTRY.
+
+END-OF-SELECTION.
+
+*&---------------------------------------------------------------------*
+*& Form call_adf
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM CALL_ADF.
+
+
+   IE_OUTPUTPARAMS-NODIALOG  = 'X'.
+   IE_OUTPUTPARAMS-PREVIEW   = 'X'.
+
+
+CALL FUNCTION 'FP_JOB_OPEN'
+  CHANGING
+    IE_OUTPUTPARAMS       = IE_OUTPUTPARAMS
+ EXCEPTIONS
+   CANCEL                = 1
+   USAGE_ERROR           = 2
+   SYSTEM_ERROR          = 3
+   INTERNAL_ERROR        = 4
+   OTHERS                = 5
+          .
+IF SY-SUBRC <> 0.
+* Implement suitable error handling here
+ENDIF.
+
+CALL FUNCTION 'FP_FUNCTION_MODULE_NAME'
+  EXPORTING
+    I_NAME                     = I_NAME
+ IMPORTING
+   E_FUNCNAME                 = E_FUNCNAME
+*   E_INTERFACE_TYPE           =
+*   EV_FUNCNAME_INBOUND        =
+         .
+
+ CALL FUNCTION E_FUNCNAME                 "'/1BCDWB/SM00000035'
+  EXPORTING
+    /1BCDWB/DOCPARAMS        = /1BCDWB/DOCPARAMS
+    IP_EMPLOYEE_ID           = DEMPID
+  IMPORTING
+    /1BCDWB/FORMOUTPUT       = /1BCDWB/FORMOUTPUT
+  EXCEPTIONS
+    USAGE_ERROR              = 1
+    SYSTEM_ERROR             = 2
+    INTERNAL_ERROR           = 3
+    OTHERS                   = 4
+           .
+ IF SY-SUBRC <> 0.
+* Implement suitable error handling here
+ ENDIF.
+
+CALL FUNCTION 'FP_JOB_CLOSE'
+* IMPORTING
+*   E_RESULT             =
+ EXCEPTIONS
+   USAGE_ERROR          = 1
+   SYSTEM_ERROR         = 2
+   INTERNAL_ERROR       = 3
+   OTHERS               = 4
+          .
+IF SY-SUBRC <> 0.
+* Implement suitable error handling here
+ENDIF.
+
+ENDFORM.
